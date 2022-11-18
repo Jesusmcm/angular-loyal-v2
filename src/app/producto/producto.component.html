@@ -1,0 +1,37 @@
+<p>producto works!</p>
+<h1>PRODUCTO</h1>
+
+<div *ngIf="productos; else ElseProductoId">
+    <table>
+        <th>
+            <tr>
+                <td>Producto</td>
+                <td>Imagen</td>
+                <td></td>
+            </tr>
+        </th>
+        <tbody>
+            <tr *ngFor="let prod of productos">
+                <td>{{prod.titulo}}</td>
+                <td>
+                    <img src="{{prod.url}}" class="imagen">
+                </td>
+                <td>
+                    <button routerLink="/detalle/{{prod.id}}">Detalle</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="productoId; else ElseProductoId">
+    {{productoId}}
+    <app-detalle-producto></app-detalle-producto>
+</div>
+
+
+
+<ng-template #ElseProductoId>
+    No hay Producto
+    <button (click)="cargarProductoId(id || 0)">Cargar producto</button>
+</ng-template>

@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   username?:string;
 
   constructor(loginService: LoginService) {
-    alert(loginService.getName());
+    console.log(loginService.getName());
   }
 
   ngOnInit(): void {
